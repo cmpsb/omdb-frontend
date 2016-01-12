@@ -12,7 +12,7 @@ else {
 }
 
 if(isset($_GET["p"])) {
-    $page = $_GET["p"];
+    $page = intval($_GET["p"], 10);
     if($page < 1) $page = 1;
 }
 else {

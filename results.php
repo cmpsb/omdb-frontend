@@ -24,11 +24,11 @@ class ResultsFormatter {
                         .    "</td>"
                         .    "<td class=\"title\">"
                         .      "<a href=\"http://www.imdb.com/title/" . $movie->imdbID . "\">"
-                        .        $movie->Title
+                        .        htmlspecialchars($movie->Title)
                         .      "</a>"
                         .    "</td>"
                         .    "<td class=\"plot\">"
-                        .      $movie->details->Plot
+                        .      htmlspecialchars($movie->details->Plot)
                         .    "</td>"
                         .    "<td class=\"rating\">"
                         .      $rating
