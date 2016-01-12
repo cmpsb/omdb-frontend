@@ -3,4 +3,4 @@ A truly awful-looking web frontend for the Open Movie Database.
 
 (The truly afwul part is a prediction.)
 
-Current live version of [dummy-view.php](https://cmpsb.nl/misc/omdb/dummy-view.php).
+Current live version at [cmpsb.nl](https://cmpsb.nl/misc/omdb/search.php?t=Office%20Space).
