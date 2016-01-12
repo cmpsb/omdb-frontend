@@ -13,6 +13,7 @@ else {
 
 if(isset($_GET["p"])) {
     $page = $_GET["p"];
+    if($page < 1) $page = 1;
 }
 else {
     $page = 1;

@@ -6,7 +6,7 @@ class OMDBSearch {
     private $title;
     private $page;
 
-    private $results;
+    private $results = array();
 
     public function __construct($title, $page) {
         $this->title = $title;
@@ -20,7 +20,9 @@ class OMDBSearch {
 
         $data = json_decode($response);
 
-        $this->results = $data->Search;
+        if(property_exists($data, "Search")) {
+            $this->results = $data->Search;
+        }
 
         return $this->results;
     }

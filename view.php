@@ -64,9 +64,24 @@
                     </li>
                 <?php endif; ?>
             </ul>
-            <table class="table">
-                <?= $resultsTable->getHTML() ?>
-            </table>
+            <?php if($page == 1 && $search->getNumResults() == 0): ?>
+                <div class="alert alert-danger">
+                    <strong>No movies found!</strong>
+                    You must be into some really obscure movies then.
+                </div>
+            <?php elseif($page > 1 && $search->getNumResults() == 0): ?>
+                <div class="alert alert-warning">
+                    <strong>Whoops.</strong> There are no results left.
+                    <br>
+                    <small>The OMDb API does not give the total number of results, leaving the app 
+                    to guess whether there are more pages. Turns out that the guess was wrong!
+                    (Sorry about that.)</small>
+                </div>
+            <?php else: ?>
+                <table class="table">
+                    <?= $resultsTable->getHTML() ?>
+                </table>
+            <?php endif; ?>
             <ul class="pager">
                 <?php if($page > 1): ?>
                     <li class="previous">
