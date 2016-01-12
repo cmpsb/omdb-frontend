@@ -25,15 +25,9 @@ foreach($results as $result) {
     $details = new OMDBDetail($result->imdbID);
     $result->details = $details->sendRequest();
 }
-?>
 
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Search results for "<?= $title ?>"</title>
-        <meta charset="UTF-8" />
-    </head>
-    <body>
-        <?= (new ResultsFormatter($results))->getHTML() ?>
-    </body>
-</html>
+$resultsTable = new ResultsFormatter($results);
+
+$ucTitle = urlencode($title);
+
+include("view.php");

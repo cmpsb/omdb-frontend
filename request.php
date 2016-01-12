@@ -6,6 +6,8 @@ class OMDBSearch {
     private $title;
     private $page;
 
+    private $results;
+
     public function __construct($title, $page) {
         $this->title = $title;
         $this->page = $page;
@@ -18,6 +20,12 @@ class OMDBSearch {
 
         $data = json_decode($response);
 
-        return $data->Search;
+        $this->results = $data->Search;
+
+        return $this->results;
+    }
+
+    public function getNumResults() {
+        return count($this->results);
     }
 }
