@@ -1,9 +1,12 @@
 <?php
 
-class OMDBRequest {
+class OMDBSearch {
     private $requestURL = "http://www.omdbapi.com/?type=movie&v=1";
 
-    public function __construct($title = "The Room", $page = 1) {
+    private $title;
+    private $page;
+
+    public function __construct($title, $page) {
         $this->title = $title;
         $this->page = $page;
     }
